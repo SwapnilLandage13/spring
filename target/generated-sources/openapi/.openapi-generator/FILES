@@ -1,0 +1,7 @@
+src/main/java/com/spring/services/api/ApiUtil.java
+src/main/java/com/spring/services/api/BlogsApi.java
+src/main/java/com/spring/services/api/CitiesApi.java
+src/main/java/com/spring/services/api/UsersApi.java
+src/main/java/com/spring/services/model/Blog.java
+src/main/java/com/spring/services/model/City.java
+src/main/java/com/spring/services/model/User.java

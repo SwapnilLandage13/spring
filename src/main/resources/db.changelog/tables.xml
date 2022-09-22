@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <changeSet author="pn" id="ddl_m_01">
+        <createTable tableName="user_blog">
+            <column name="user_id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="user_id_pk"/>
+            </column>
+            <column name="f_name" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="l_name" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="email" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="city" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="is_deleted" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_on" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="updated_on" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="password" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+        <createTable tableName="blog_data">
+            <column name="blog_id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="blog_id_pk"/>
+            </column>
+            <column name="user_blog_id" type="int">
+                <constraints foreignKeyName="user_blog_id_fk" references="user_blog (user_id)"/>
+            </column>
+            <column name="blog_title" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="blog_body" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="publish_by" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="deleted_on" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="created_on" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="updated_on" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+            <column name="blog_deleted_on" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <createTable tableName="cities">
+            <column name="city_id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true" primaryKeyName="city_id_pk"/>
+            </column>
+            <column name="city_name" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <insert tableName="cities">
+            <column name="city_id" value="1"/>
+            <column name="city_name" value="Sangli"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="2"/>
+            <column name="city_name" value="Satara"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="3"/>
+            <column name="city_name" value="Kohlapur"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="4"/>
+            <column name="city_name" value="Pune"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="5"/>
+            <column name="city_name" value="Solapur"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="6"/>
+            <column name="city_name" value="Nagpur"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="7"/>
+            <column name="city_name" value="Mumbai"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="8"/>
+            <column name="city_name" value="Nashik"/>
+        </insert>
+        <insert tableName="cities">
+            <column name="city_id" value="9"/>
+            <column name="city_name" value="Akola"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

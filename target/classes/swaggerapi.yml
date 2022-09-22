@@ -1,0 +1,435 @@
+swagger: '2.0'
+info:
+  title: SpringBoot Test API
+  description: |
+    Spring boot API services for learning
+  version: 0.01.5
+host: localhost
+schemes:
+  - https
+basePath: /api/services
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: UserEntity
+    description: APIs to get, create employees
+paths:
+  /users/addUser:
+    post:
+      parameters:
+        - in: body
+          name: User
+          description: User details
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      summary: add user details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /users:
+    get:
+      summary: Get user details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/Users'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /users/deleteById:
+    delete:
+      parameters:
+        - in: query
+          name: userId
+          type: integer
+          description: Delete User By Id
+          required: true
+          allowEmptyValue: false
+      summary: delete user By Id
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs/UpdateBlog:
+    put:
+      parameters:
+        - in: body
+          name: Blog
+          description: Blog details
+          required: true
+          schema:
+            $ref: '#/definitions/Blog'
+      summary: update Blog details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /users/getUserById:
+    get:
+      parameters:
+        - in: query
+          description: user id
+          name: userId
+          type: integer
+          required: true
+          allowEmptyValue: false
+      summary: Get User details By Id
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/User'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /users/updateUser:
+    post:
+      parameters:
+        - in: body
+          name: User
+          description: User details
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      summary: update user details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs/addBlog:
+    post:
+      parameters:
+        - in: body
+          name: Blog
+          description: Blog details
+          required: true
+          schema:
+            $ref: '#/definitions/Blog'
+      summary: add user details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs:
+    get:
+      summary: Get blog details
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/Blogs'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs/deleteById:
+    delete:
+      parameters:
+        - in: query
+          name: blogId
+          type: integer
+          description: Delete Blog By Id
+          required: true
+          allowEmptyValue: false
+      summary: delete blog By Id
+      deprecated: false
+      responses:
+        200:
+          description: Success
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs/getBlogById:
+    get:
+      parameters:
+        - in: query
+          description: blog id
+          name: blogId
+          type: integer
+          required: true
+          allowEmptyValue: false
+      summary: Get Blog details By Id
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/Blog'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /blogs/getAllBlogByUserId:
+    get:
+      parameters:
+        - in: query
+          description: userBlog Id
+          name: userId
+          type: integer
+          required: true
+          allowEmptyValue: false
+      summary: Get All blog by userid
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/Blogs'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+  /cities/getAllCities:
+    get:
+      summary: Get All cities
+      deprecated: false
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/Cities'
+        401:
+          description: Not authenticated. All activities are logged per user, so users must be authenticated before they can call this endpoint.
+        403:
+          description: Not authorized for any data. Note this is not the case if user has a role of Administrator or Manager.
+        404:
+          description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+        405:
+          description: The method received in the request-line is known by the origin server but not supported by the target resource.
+        500:
+          description: The server encountered an unexpected condition that prevented it from fulfilling the request.
+        503:
+          description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay
+        default:
+          description: Unexpected ErrorResponse
+definitions:
+  Users:
+    type: array
+    title: All User Details
+    items:
+      $ref: '#/definitions/User'
+  User:
+    type: object
+    properties:
+      userId:
+        type: integer
+        description: User id
+      firstName:
+        type: string
+        description: User firstname
+      lastName:
+        type: string
+        description: User lastname
+      email:
+        type: string
+        description: User email
+      city:
+        type: string
+        description: User city
+      created_on:
+        type: string
+        format: timestamp
+        description: deletion date and time
+        example: "2021-01-30T08:30:00Z"
+      updated_on:
+        type: string
+        format: timestamp
+        description: deletion date and time
+        example: "2021-01-30T08:30:00Z"
+      is_deleted:
+        type: string
+        description: User is_deleted
+      password:
+        type: string
+        description: password
+  Blogs:
+    type: array
+    title: All Blog Details
+    items:
+      $ref: '#/definitions/Blog'
+  Blog:
+    type: object
+    properties:
+      blogId:
+        type: integer
+        description: Blog blog_id
+      blogtitle:
+        type: string
+        description: Blog blog_title
+      blogbody:
+        type: string
+        description: Blog blog_body
+      publishby:
+        type: string
+        description: Blog publish_by
+      isdeleted:
+        type: string
+        description: Blog is_deleted
+      createdon:
+        type: string
+        format: timestamp
+        description: deletion date and time
+        example: "2021-01-30T08:30:00Z"
+      updatedon:
+        type: string
+        format: timestamp
+        description: deletion date and time
+        example: "2021-01-30T08:30:00Z"
+      userBlogId:
+        type: integer
+        description: userBlog Id
+  Cities:
+    type: array
+    title: All cities details
+    items:
+      $ref: '#/definitions/City'
+  City:
+    type: object
+    properties:
+      cityId:
+        type: integer
+        description: city Id
+      cityName:
+        type: string
+        description: city name
